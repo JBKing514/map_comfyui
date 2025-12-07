@@ -38,7 +38,7 @@ pip install matplotlib
 ### 🔬 Manual Analysis (The VNA Mode)
 Acts like an oscilloscope for your diffusion process.
 - **Differential Tracking:** Automatically detects if you are using the same seed as the previous run.
-- **Visual Feedback:** Displays **Green (Improvement)** or **Red (Regression)** arrows to show exactly how your prompt or parameter tweaks affect generation quality.
+- **Visual Feedback:** Displays **Green (Improvement)** or **Red (Regression)** to show exactly how your prompt or parameter tweaks affect generation quality.
 - **Quantified Metrics:**
     - **Depth:** How deep the latent vector penetrated the semantic manifold (Signal Strength).
     - **Stability:** Whether the trajectory stabilized at the attractor well (Convergence Quality).
@@ -89,17 +89,17 @@ Best for production and optimization.
 ### Manual Analysis: Improvement vs Regression
 
 <p align="center">
-  <img src="examples/Manual_Imp.png" width="800" alt="MAP Protocol Visualization">
+  <img src="examples/Manual_Imp.png" width="500" alt="MAP Analysis Improved">
 </p>
 
 <p align="center">
-  <img src="examples/Manual_Reg.png" width="800" alt="MAP Protocol Visualization">
+  <img src="examples/Manual_Reg.png" width="500" alt="MAP Analysis Regress">
 </p>
 
 ### Auto-Tuning Curve
 
 <p align="center">
-  <img src="examples/Auto_Tuner.png" width="800" alt="MAP Protocol Visualization">
+  <img src="examples/Auto_Tuner.png" width="500" alt="MAP Auto Tune">
 </p>
 
 ---

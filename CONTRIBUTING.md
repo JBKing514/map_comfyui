@@ -12,7 +12,7 @@ Create your own fork and clone it into your `ComfyUI/custom_nodes/` directory:
 
 ```bash
 cd ComfyUI/custom_nodes/
-git clone https://github.com/JBKing514/ComfyUI-MAP-Probe.git
+git clone https://github.com/JBKing514/map_comfyui.git
 ```
 
 ### 2. Development Workflow
