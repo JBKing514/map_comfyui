@@ -1,4 +1,6 @@
-# Contributing to ComfyUI-MAP-Probe
+# File: CONTRIBUTING.md
+
+# Contributing to MAP-ComfyUI
 
 Thank you for your interest in contributing!
 This project brings the geometric insights of the Manifold Alignment Protocol (MAP) to the practical world of ComfyUI. We welcome improvements to the algorithms, UI enhancements, and compatibility fixes.
@@ -12,7 +14,7 @@ Create your own fork and clone it into your `ComfyUI/custom_nodes/` directory:
 
 ```bash
 cd ComfyUI/custom_nodes/
-git clone https://github.com/JBKing514/map_comfyui.git
+git clone [https://github.com/JBKing514/map_comfyui.git](https://github.com/JBKing514/map_comfyui.git)
 ```
 
 ### 2. Development Workflow
@@ -20,12 +22,13 @@ git clone https://github.com/JBKing514/map_comfyui.git
 Since this is a ComfyUI node, testing requires running ComfyUI.
 - **Hot Reloading:** We recommend creating a workflow that uses the node, and restarting ComfyUI (or reloading via the Manager) to test changes.
 - **Dependencies:** Ensure your environment has `matplotlib` installed.
+- **Plotting Logic:** We use `matplotlib.gridspec` for the dashboard layout. When modifying `plot_tuning_curve`, please ensure the bottom 1/6th of the figure remains reserved for the text dashboard to prevent overlap.
 
 ### 3. Add Your Changes
 
 The core logic resides in `map_nodes.py`.
 - **Algorithm Logic:** Modifications to Q-score calculation or projection should be well-commented.
-- **UI/Plotting:** Changes to `matplotlib` plotting code should ensure the text is legible and colors are distinct.
+- **Scheduler Optimization:** Logic for scheduler sweeping is in `run_auto_tuner` (Phase 2). Be careful with extensive loops as they consume GPU time.
 
 ---
 
@@ -42,7 +45,8 @@ The core logic resides in `map_nodes.py`.
 ### Before submitting:
 
 1.  **Test Manual Mode:** Ensure differential tracking works when switching seeds.
-2.  **Test Auto-Tuner:** Ensure it stops correctly at the peak and doesn't run infinitely.
+2.  **Test Auto-Tuner:** - Verify Phase 1 (Steps), Phase 2 (Scheduler), and Phase 3 (CFG) execute in order.
+    - Ensure the Dashboard text (Bottom panel) aligns correctly and doesn't clip.
 3.  **Check Logging:** Verify that CSVs are written correctly to the output folder.
 
 ### Then open a PR with:
@@ -68,9 +72,10 @@ If you find a bug (e.g., tensor shape mismatches with certain SDXL/SD1.5 models)
 
 We are looking for help with:
 
-- Support for other Samplers (Ancestral, SDE).
-- 3D Trajectory Visualization (Interactive HTML).
-- Integration with ComfyUI-Manager for auto-installing dependencies.
+- **Smart Caching:** Implementing a hash-based cache to skip Scheduler Optimization if the Model+Steps combination has been seen before (Performance).
+- **3D Trajectory Visualization:** Interactive HTML export of the manifold trajectory.
+- **Profiling Mode:** A "One-Click" analysis mode that runs a fixed battery of tests on a new Checkpoint to generate a recommended settings report.
+- **Integration:** ComfyUI-Manager auto-install support.
 
 Thank You!
 

@@ -1,4 +1,4 @@
-# ComfyUI-MAP-Probe (v0.1)
+# MAP-ComfyUI (v0.2)
 
 **A Geometric "Vector Network Analyzer" for Stable Diffusion Latent Trajectories.**
 
@@ -6,7 +6,7 @@
 
 This custom node implements the **Manifold Alignment Protocol (MAP)** within ComfyUI. It transforms the "black box" of diffusion sampling into a measurable, visualizable geometric process.
 
-Instead of guessing whether `Step=40` is better than `Step=30`, MAP-Probe quantifies the **Semantic Confidence (Depth)** and **Structural Stability (Convergence)** of the generation process, providing scientific feedback for prompt engineering and hyperparameter tuning.
+Instead of guessing whether `Step=40` is better than `Step=30`, or which Scheduler works best, MAP-Probe quantifies the **Semantic Confidence (Depth)** and **Structural Stability (Convergence)** of the generation process.
 
 For the theoretical foundation, please visit the main repository:
 👉 [The Manifold Alignment Protocol (MAP)](https://github.com/JBKing514/map_blog)
@@ -43,15 +43,16 @@ Acts like an oscilloscope for your diffusion process.
     - **Depth:** How deep the latent vector penetrated the semantic manifold (Signal Strength).
     - **Stability:** Whether the trajectory stabilized at the attractor well (Convergence Quality).
 
-### 🤖 Auto-Tuner (Hill Climbing)
-A "Self-Driving" mode that optimizes parameters to save compute.
-- **Step Search:** Automatically iterates steps (e.g., 20, 25, 30...) to find the peak Q-score.
-- **Early Stopping:** Detects "Over-baking" (when quality starts to drop despite more steps) and stops automatically.
-- **CFG Refinement:** (Optional) Fine-tunes CFG scale around the optimal step count.
+### 🤖 Auto-Tuner (Smart Optimization)
+A "Self-Driving" mode that performs a 3-Phase Optimization:
+1.  **Step Search (Hill Climb):** Iterates steps (e.g., 20, 25, 30...) to find the rough peak Q-score.
+2.  **Scheduler Sweep (New!):** Once the optimal step count is found, it automatically tests all available schedulers (Normal, Karras, Exponential, SGM, etc.) to find the mathematically optimal solver for your model.
+3.  **CFG Refinement:** Fine-tunes CFG scale around the optimal point with a user-definable range.
 
-### 📊 Data Logging
-- **Auto-CSV:** Successfully optimized runs are automatically logged to `ComfyUI/output/MAP_Tuning_Log.csv` with timestamps, parameters, and Q-scores.
-- **Prompt Archiving:** Connect your prompt text to `optional_positive_text` to build a "Golden Prompt" database.
+### 📊 Dashboard Visualization (New!)
+- **Split-View Layout:** Results are displayed in a professional, non-overlapping Dashboard below the trajectory plot.
+- **Phase Markers:** Distinct visual markers for Steps (Line), Scheduler attempts (Triangles), and CFG trials (Stars).
+- **Auto-CSV:** Successfully optimized runs are logged to `ComfyUI/output/MAP_Tuning_Log.csv`.
 
 ---
 
@@ -64,25 +65,27 @@ Search for the node **"MAP Pro Suite"**. It functions as a replacement for the s
 - **Output:**
     - `LATENT`: The best latent found (passed to VAE Decode).
     - `IMAGE`: The trajectory analysis plot (connect to `Preview Image`).
-    - `STRING`: Detailed analysis text (connect to `Show Text` from *ComfyUI-Custom-Scripts*).
+    - `STRING`: Detailed analysis text.
 
 ### 2. Operation Modes
 
 #### Mode A: `Analyze (Manual)`
 Best for exploration and manual tweaking.
-1.  Run with a **Random Seed**. The node establishes a reference Q-score.
+1.  Run with a **Random Seed** to establish a reference.
 2.  Switch to **Fixed Seed**.
-3.  Tweak `Steps` or `CFG` or modify your Prompt.
-4.  Run again. The plot will show a **Δ (Delta)** indicating improvement or degradation.
+3.  Tweak parameters. The plot will show a **Δ (Delta)** indicating improvement.
 
 #### Mode B: `Auto-Tune (Hill Climb)`
-Best for production and optimization.
-1.  Set `tuner_max_steps` (e.g., 50) and `tuner_stride` (e.g., 5).
-2.  The node will run a loop internally (e.g., 20 -> 25 -> 30...).
-3.  It returns the **Best Latent** found before quality peaked or dropped.
-4.  Check `ComfyUI/output/MAP_Tuning_Log.csv` for the record.
+Best for finding the "Sweet Spot" of a Model/Prompt combo.
 
----
+**Parameters:**
+- `tuner_max_steps`: Hard limit for step search (e.g., 50).
+- `tuner_stride`: Step increment (e.g., 5).
+- `tuner_optimize_scheduler` (**New**): If Enabled, the node will lock the best step count and brute-force test all schedulers to find the best ODE solver.
+- `tuner_cfg_range` (**New**): Defines the search radius for CFG (e.g., 0.5 means checking `Base +/- 0.5`).
+
+**Output:**
+The node returns the **Best Latent** found across all three optimization phases.
 
 ## Visual Examples
 
