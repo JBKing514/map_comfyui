@@ -105,6 +105,15 @@ The node returns the **Best Latent** found across all three optimization phases.
   <img src="examples/Auto_Tuner.png" width="500" alt="MAP Auto Tune">
 </p>
 
+## ⚖️ Disclaimer: Stability ≠ Aesthetics
+**MAP-Probe optimizes for Geometric Stability (Q-Score).**
+
+It excels at finding parameters that produce clean, structurally sound, and converged images (reducing artifacts and over-baking).
+
+However, "Convergence" does not always equal "Beauty." Some artistic styles (e.g., painterly, sketchy) may inherently have lower stability scores.
+
+**Use the Auto-Tuner as a navigator, not a dictator.** Always verify the results with your own eyes.
+
 ---
 
 ## Citation
