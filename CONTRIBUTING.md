@@ -1,5 +1,3 @@
-# File: CONTRIBUTING.md
-
 # Contributing to MAP-ComfyUI
 
 Thank you for your interest in contributing!
@@ -54,7 +52,7 @@ The core logic resides in `map_nodes.py`.
 -   A clear title.
 -   A short description of the change.
 -   **Screenshots** of the node output (Graphs/Plots) showing the effect of your changes.
--   
+
 **note:** This project is currently maintained by one person (a full-time PhD student),  
 so PR reviews may take time. Thanks for your patience!
 
