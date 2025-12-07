@@ -1,4 +1,4 @@
-# ComfyUI-MAP-Probe (v0.1)
+# MAP-ComfyUI (v0.1)
 
 **A Geometric "Vector Network Analyzer" for Stable Diffusion Latent Trajectories.**
 
