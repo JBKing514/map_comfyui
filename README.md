@@ -106,7 +106,7 @@ The node returns the **Best Latent** found across all three optimization phases.
 </p>
 
 ## ⚖️ Disclaimer: Stability ≠ Aesthetics
-**MAP-Probe optimizes for Geometric Stability (Q-Score).**
+**This ComfyUI custom node optimizes for Geometric Stability (Q-Score).**
 
 It excels at finding parameters that produce clean, structurally sound, and converged images (reducing artifacts and over-baking).
 
