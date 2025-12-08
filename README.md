@@ -87,10 +87,58 @@ Best for finding the "Sweet Spot" of a Model/Prompt combo.
 **Output:**
 The node returns the **Best Latent** found across all three optimization phases.
 
-## Visual Examples
+## ⚖️ Disclaimer: Stability ≠ Aesthetics  
+**MAP-Probe optimizes for Geometric Stability (Q-Score)** — not beauty.
 
-### Manual Analysis: Improvement vs Regression
+MAP focuses on improving the **mathematical convergence quality** of the sampling process:
 
+- Clearer and more stable **line art**  
+- Smoother and more consistent **shadows & gradients**  
+- Reduced **over-baking / ringing artifacts**  
+- Better structural consistency across seeds
+
+This does *not* always look “more beautiful,” because:
+
+- Some artistic styles (sketch / watercolor / noisy anime shading) naturally have **low stability**  
+- Human preference is nonlinear and style-dependent  
+- MAP rewards *geometric clarity*, not subjective appeal
+
+### Why it still matters  
+Images with higher MAP-Q scores tend to:
+
+- Convert **much better in ESRGAN / SwinIR upscaling**  
+- Handle **hi-res fix with lower denoise (0.10–0.20)** without collapsing  
+- Produce **cleaner feature boundaries** for downstream editing  
+- Enable **more predictable prompt adjustments** (good for workflows)
+
+MAP-Probe acts as a **navigator**, not a dictator.
+
+**Use it to understand structure, then decide based on your own taste.**
+
+---
+
+## 📊 Example: Human Visual Difference  
+Below is a real-world comparison illustrating how MAP tuning affects clarity  
+(line sharpness, edge coherence, shadow smoothness), without dictating aesthetics.
+
+<p align="center">
+  <img src="examples/Img_Comparison.png" width="900" alt="MAP Comparison">
+</p>
+
+Caption example:
+
+> **Left:** Default sampling (20 steps, 8 CFG, simple scheduler)  
+> **Middle:** MAP-optimized sampling (25 steps, 8 CFG, exponential scheduler)  
+> **Right:** Over-optimized sampling (60 steps, 12 CFG, simple scheduler)  
+>
+> MAP tuning generally improves **edge definition** without altering style.  
+> Over-optimization introduces **over-sharpening artifacts**.
+
+---
+
+## Plot Output Examples
+
+### Manual Analysis: Improvement vs Regression  
 <p align="center">
   <img src="examples/Manual_Imp.png" width="500" alt="MAP Analysis Improved">
 </p>
@@ -99,20 +147,11 @@ The node returns the **Best Latent** found across all three optimization phases.
   <img src="examples/Manual_Reg.png" width="500" alt="MAP Analysis Regress">
 </p>
 
-### Auto-Tuning Curve
-
+### Auto-Tuning Curve  
 <p align="center">
   <img src="examples/Auto_Tuner.png" width="500" alt="MAP Auto Tune">
 </p>
 
-## ⚖️ Disclaimer: Stability ≠ Aesthetics
-**MAP-Probe optimizes for Geometric Stability (Q-Score).**
-
-It excels at finding parameters that produce clean, structurally sound, and converged images (reducing artifacts and over-baking).
-
-However, "Convergence" does not always equal "Beauty." Some artistic styles (e.g., painterly, sketchy) may inherently have lower stability scores.
-
-**Use the Auto-Tuner as a navigator, not a dictator.** Always verify the results with your own eyes.
 
 ---
 
