@@ -125,14 +125,12 @@ Below is a real-world comparison illustrating how MAP tuning affects clarity
   <img src="examples/Img_Comparison.png" width="900" alt="MAP Comparison">
 </p>
 
-Caption example:
+**Left:** Default sampling (20 steps, 8 CFG, simple scheduler)  
+**Middle:** MAP-optimized sampling (25 steps, 8 CFG, exponential scheduler)  
+**Right:** Over-optimized sampling (60 steps, 12 CFG, simple scheduler)  
 
-> **Left:** Default sampling (20 steps, 8 CFG, simple scheduler)  
-> **Middle:** MAP-optimized sampling (25 steps, 8 CFG, exponential scheduler)  
-> **Right:** Over-optimized sampling (60 steps, 12 CFG, simple scheduler)  
->
-> MAP tuning generally improves **edge definition** without altering style.  
-> Over-optimization introduces **over-sharpening artifacts**.
+MAP tuning generally improves **edge definition** without altering style.  
+Over-optimization introduces **over-sharpening artifacts**.
 
 ---
 
