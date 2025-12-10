@@ -2,7 +2,7 @@
 
 **A Geometric "Vector Network Analyzer" for Stable Diffusion Latent Trajectories.**
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-2511.xxxxx-b31b1b.svg)](https://arxiv.org/abs/2511.xxxxx) [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
 This custom node implements the **Manifold Alignment Protocol (MAP)** within ComfyUI. It transforms the "black box" of diffusion sampling into a measurable, visualizable geometric process.
 
