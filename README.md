@@ -2,7 +2,7 @@
 
 **A Geometric "Vector Network Analyzer" for Stable Diffusion Latent Trajectories.**
 
-[![arXiv](https://img.shields.io/badge/arXiv-2511.xxxxx-b31b1b.svg)](https://arxiv.org/abs/2511.xxxxx) [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17900444.svg)](https://doi.org/10.5281/zenodo.17900444) [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
 This custom node implements the **Manifold Alignment Protocol (MAP)** within ComfyUI. It transforms the "black box" of diffusion sampling into a measurable, visualizable geometric process.
 
@@ -155,16 +155,10 @@ Over-optimization introduces **over-sharpening artifacts**.
 
 ## Citation
 
-If you use this toolkit or MAP in your research, please cite:
+If you use MAP or the MAP Toolkit, please cite:
 
-```bibtex
-@article{tang2025map,
-  title={The Manifold Alignment Protocol (MAP): A Self-Iterable Geometric Framework for Cross-System Cognitive Convergence},
-  author={Tang, Yunchong},
-  journal={arXiv preprint arXiv:2511.xxxxx},
-  year={2025}
-}
-```
+Tang, Y. (2025). *The Manifold Alignment Protocol (MAP): A Self-Iterable Geometric Framework for Cross-System Cognitive Convergence*. Zenodo. https://doi.org/10.5281/zenodo.17900444
+
 
 ## License
 
