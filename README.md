@@ -111,7 +111,7 @@ Images with higher MAP-Q scores tend to:
 - Produce **cleaner feature boundaries** for downstream editing  
 - Enable **more predictable prompt adjustments** (good for workflows)
 
-MAP-Probe acts as a **navigator**, not a dictator.
+MAP acts as a **navigator**, not a dictator.
 
 **Use it to understand structure, then decide based on your own taste.**
 
