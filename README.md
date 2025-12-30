@@ -8,8 +8,9 @@ This custom node implements the **Manifold Alignment Protocol (MAP)** within Com
 
 Instead of guessing whether `Step=40` is better than `Step=30`, or which Scheduler works best, MAP-Probe quantifies the **Semantic Confidence (Depth)** and **Structural Stability (Convergence)** of the generation process.
 
-For the theoretical foundation, please visit the main repository:
-👉 [The Manifold Alignment Protocol (MAP)](https://github.com/JBKing514/map_blog)
+For the theoretical foundation behind MAP, please visit the main repository:
+
+👉 https://github.com/JBKing514/map_blog
 
 ---
 
